@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.shortcuts import get_list_or_404
+from django.shortcuts import get_object_or_404
 from .models import Category, Product
 
 
@@ -8,7 +8,7 @@ def home(request, category_slug=None):
     category_page = None
     products = None
     if category_slug is not None:
-        category_page = get_list_or_404(Category, slug=category_slug)
+        category_page = get_object_or_404(Category, slug=category_slug)
         products = Product.objects.filter(category=category_page, available=True)
     else:
         products = Product.objects.all().filter(available=True)
@@ -18,6 +18,7 @@ def home(request, category_slug=None):
                       'products': products
                   }
                   )
+
 
 
 def product(request):
