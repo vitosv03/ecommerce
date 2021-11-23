@@ -20,6 +20,14 @@ def home(request, category_slug=None):
                   )
 
 
-
-def product(request):
-    return render(request, 'product.html')
+def product(request, category_slug, product_slug):
+    try:
+        # получаем доступ к модели Category полю slug
+        product = Product.objects.get(category__slug=category_slug, slug=product_slug)
+    except Exception as e:
+        raise e
+    return render(request,
+                  'product.html', {
+                      'product': product
+                  }
+                  )
