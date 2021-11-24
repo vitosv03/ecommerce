@@ -31,3 +31,7 @@ def product(request, category_slug, product_slug):
                       'product': product
                   }
                   )
+
+
+def cart(request):
+    return render(request, 'cart.html')
