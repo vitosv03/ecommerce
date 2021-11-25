@@ -2,10 +2,10 @@
 
 {% load static %}
 
-
+{% load crispy_forms_tags %}
 
 {% block title %}
-	Creat New Account
+	Create New Account
 {% endblock %}
 
 {% block content %}
@@ -23,10 +23,8 @@
 					<p>Please input the following information to create a new account</p>
 					<form method="post">
 						{% csrf_token %}
-                        <table>
-						<p>{{ form.as_table }}</p>
-                        </table>
-						<button type="submit" name="button" class="btn btn-secondary">SignUp</button>
+                        <p>{{ form | crispy }}</p>
+                        <button type="submit" name="button" class="btn btn-secondary">SignUp</button>
 					</form>
 					
 				</div>

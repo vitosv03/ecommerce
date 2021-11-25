@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     # 'shop.apps.ShopConfig',
     # второй способ можно просто писать название приложения
     'shop',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -143,3 +144,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/ecommerce_media/'
 
 MEDIA_ROOT = BASE_DIR / 'media/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
